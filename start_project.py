@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 
+# Standard Libraries
 import os
+
+# Custom Modules
+import write_setup
 
 # Define a simple namespace class to hold config options
 class Config():
@@ -46,24 +50,15 @@ def main():
 
     #TODO Add automatic license implementation
     # License information
-        
-   
-
-    print 'project_name =', project_name
-    print 'author =', author
-    print 'version =', version
-    print 'vcs =', vcs
 
     # Create project repo
-    os.mkdir(project_name)
+    os.mkdir(config.project_name)
     
     # Move into repo
-    os.chdir(project_name)
+    os.chdir(config.project_name)
     
     # Add Setup files
-    f = open('setup.py','w')
-    f.write('')
-    f.close()
+    write_setup.write_python(config)
     
     f = open('setup.cf','w')
     f.write('')
@@ -101,10 +96,10 @@ def main():
     os.mkdir('tests')
     
     # Make project module folder
-    os.mkdir(project_name.lower())
+    os.mkdir(config.project_name.lower())
     
     # Move into project module folder
-    os.chdir(project_name.lower())
+    os.chdir(config.project_name.lower())
     
     # Make into a module
     f = open('__init__.py','w')

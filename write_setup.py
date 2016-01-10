@@ -5,7 +5,7 @@ Module to automate the creation of setup files for the start project approach.
 
 """
 
-def write_python(self, config):
+def write_python(config):
 
     # Open file for writing
     f = open('setup.py','w')
@@ -35,12 +35,12 @@ def write_python(self, config):
     
     # Include Setup configuration options
     f.write('setup(\n')
-    f.write('    name=' + project_name + ',\n\n"
+    f.write('    name=' + config.project_name + ',\n\n')
 
     # Version info
     f.write('    # Versions should comply with PEP440.  For a discussion on single-sourcing\n')
     f.write('    # the version across setup.py and the project code, see\n')
-    f.write('    # https://packaging.python.org/en/latest/single_source_version.html\n'
+    f.write('    # https://packaging.python.org/en/latest/single_source_version.html\n')
     f.write("    version=" + config.version + ",\n\n")
     
     # Description info
@@ -100,13 +100,13 @@ def write_python(self, config):
     f.write('    # simple. Or you can use find_packages().\n')
     f.write("    packages=find_packages(exclude=['contrib', 'docs', 'tests']),\n\n")
 
-    f.write('    # Alternatively, if you want to distribute just a my_module.py, uncomment'\n)
+    f.write('    # Alternatively, if you want to distribute just a my_module.py, uncomment\n')
     f.write('    # this:\n')
     f.write('    #   py_modules=["my_module"],\n\n')
 
     # Run Time dependency
     f.write('    # List run-time dependencies here.  These will be installed by pip when\n')
-    f.write("    # your project is installed. For an analysis of "install_requires" vs pip's\n")
+    f.write('''    # your project is installed. For an analysis of "install_requires" vs pip's\n''')
     f.write('    # requirements files see:\n')
     f.write('    # https://packaging.python.org/en/latest/requirements.html\n')
     f.write("    install_requires=['peppercorn'],\n\n")
@@ -145,6 +145,9 @@ def write_python(self, config):
     f.write('        ],\n')
     f.write('    },\n')
     f.write(')\n')
+
+    # Close file after writing
+    f.close()
 
 def write_config(self):
     pass
