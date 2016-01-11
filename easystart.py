@@ -19,13 +19,18 @@ def main():
     config = Config()
 
     # Get input from user
+    print "    ==========================================\n"
+    print "    Welcome to Python Easy Start Project Setup\n"
+    print "    ==========================================\n\n"
 
-    # Project Info
+    # Basic Project Info
+    print "Please input basic project info.\n"
     config.project_name = raw_input('Input Project Name: ')
     config.author = raw_input('Author Name: ')
     config.email = raw_input('Author Email: ')
     config.version = raw_input('Starting Version: ')
 
+    # Version Control System
     # Check if user wants to use version control
     vcsToken = raw_input('Implement Version Control: ')
     config.vcsFlag = vcsToken in ['1', 'T', 'True', 't', 'true', 'y', 'Y',
@@ -50,7 +55,7 @@ def main():
         print 'For the automated hosting option to function, the '
         print 'remote repository should already be initialized.'
 
-        config.hostInit = raw_input('Has remote repository been created?')
+        config.hostInit = raw_input('Has remote repository been created? ')
 
     # TODO Add automatic license implementation
     # License information
@@ -117,6 +122,13 @@ def main():
 
     # Move back to main folder
     os.chdir('..')
+
+    # Add easy start config info
+    f = open('.ess_cfg', 'w')
+    f.write('author = ' + config.author + '\n')
+    f.write('email = ' + config.author + '\n')
+    f.write('version = ' + config.version + '\n')
+    f.close()
 
     # Initialize Sphinx documentation
     os.system('sphinx-quickstart')
