@@ -115,9 +115,16 @@ def main():
     f.write('')
     f.close()
 
+    # Move back to main folder
+    os.chdir('..')
+
+    # Initialize Sphinx documentation
+    os.system('sphinx-quickstart')
+
     # Add all files to git
     os.system('git add .')
-    os.system('git tag -a ' + config.version + ' -m Initial Repo Setup')
+    os.system('git commit -m "Inital Repo Setup"')
+    os.system('git tag -a ' + config.version + ' -m "Initial Repo Setup"')
 
 
 if __name__ == '__main__':
