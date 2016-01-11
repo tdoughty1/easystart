@@ -115,5 +115,10 @@ def main():
     f.write('')
     f.close()
 
+    # Add all files to git
+    os.system('git add .')
+    os.system('git tag -a ' + config.version + ' -m Initial Repo Setup')
+
+
 if __name__ == '__main__':
     main()
