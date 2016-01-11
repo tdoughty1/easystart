@@ -34,7 +34,7 @@ def write_python(config):
     # Get description from README
     f.write('# Get the long description from the README file\n')
     f.write('here = path.abspath(path.dirname(__file__))\n')
-    f.write('with open(path.join(here, 'README.rst'),')
+    f.write("with open(path.join(here, 'README.rst'),")
     f.write(" encoding='utf-8') as f:\n")
     f.write('    long_description = f.read()\n\n')
 
@@ -45,7 +45,7 @@ def write_python(config):
 
     # Version info
     f.write('    # Versions should comply with PEP440.  For a discussion')
-    r.write(' on single-sourcing\n')
+    f.write(' on single-sourcing\n')
     f.write('    # the version across setup.py and the project code, see\n')
     f.write('    # https://packaging.python.org/en/latest/')
     f.write('single_source_version.html\n')
@@ -156,7 +156,7 @@ def write_python(config):
     f.write('    },\n\n')
 
     f.write("    # Although 'package_data' is the preferred approach, in")
-    f.write(' some case you may\n")
+    f.write(" some case you may\n")
     f.write('    # need to place data files outside of your packages. See:\n')
     f.write('    # http://docs.python.org/3.4/distutils/setupscript.html')
     f.write('#installing-additional-files # noqa\n')

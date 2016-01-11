@@ -2,9 +2,10 @@
 
 # Standard Libraries
 import os
+import subprocess
 
 # Custom Modules
-import write_setup
+import writesetup
 
 
 # Define a simple namespace class to hold config options
@@ -45,7 +46,7 @@ def main():
         config.hostOpt = raw_input('Bitbucket (1) or Github (2)? ')
         config.hostID = raw_input('Username: ')
         config.hostProject = raw_input('Project Repo name ('
-                                       + project_name.lower() + '): ')
+                                       + config.project_name.lower() + '): ')
         print 'For the automated hosting option to function, the '
         print 'remote repository should already be initialized.'
 
@@ -60,8 +61,13 @@ def main():
     # Move into repo
     os.chdir(config.project_name)
 
+    # Initialize Git repository
+    print os.system('git init')
+    print os.system('git flow init')
+    print os.system('git lfs init')
+
     # Add Setup files
-    write_setup.write_python(config)
+    writesetup.write_python(config)
 
     f = open('setup.cf', 'w')
     f.write('')
@@ -73,24 +79,24 @@ def main():
     f.close()
 
     # Add Manifest
-    f = open('MANIFEST.in', 'w')
-    f.write('')
-    f.close()
+    #f = open('MANIFEST.in', 'w')
+    #f.write('')
+    #f.close()
 
     # Add License
-    f = open('LICENSE', 'w')
-    f.write('')
-    f.close()
+    #f = open('LICENSE', 'w')
+    #f.write('')
+    #f.close()
 
     # Add Todo
-    f = open('TODO.md', 'w')
-    f.write('')
-    f.close()
+    #f = open('TODO.md', 'w')
+    #f.write('')
+    #f.close()
 
     # Add Requirements
-    f = open('requirements.txt', 'w')
-    f.write('')
-    f.close()
+    #f = open('requirements.txt', 'w')
+    #f.write('')
+    #f.close()
 
     # Make docs directory
     os.mkdir('docs')
