@@ -18,7 +18,6 @@ __version__ = '0.0.0'
 
 # Import standard modules
 from argparse import ArgumentParser
-from os.path import isfile
 
 
 # Testing routine
@@ -29,6 +28,7 @@ def test():
 
 # Main routine
 def main(args):
+    """ Automatically generate a python module file """
 
     # Ensure it's a .py module
     if '.py' not in args.name:
@@ -42,7 +42,7 @@ def main(args):
     # Write heading encoding
     f.write('#!/usr/bin/env python\n')
     f.write('# -*- coding: ascii -*-\n\n')
-    
+
     # Write module docstring placeholder
     f.write('"""\nModule Docstring Here\n"""\n\n')
 
@@ -90,7 +90,9 @@ if __name__ == '__main__':
 
     # Initialize Parser
     parser = ArgumentParser()
-    parser.add_argument('name', help = 'Name of function to create')
+
+    # Insert arguments here
+    parser.add_argument('name', help='Name of function to create')
 
     # Link to command inputs
     args = parser.parse_args()
