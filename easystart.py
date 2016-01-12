@@ -84,24 +84,24 @@ def main():
     f.close()
 
     # Add Manifest
-    #f = open('MANIFEST.in', 'w')
-    #f.write('')
-    #f.close()
+    f = open('MANIFEST.in', 'w')
+    f.write('')
+    f.close()
 
     # Add License
-    #f = open('LICENSE', 'w')
-    #f.write('')
-    #f.close()
+    f = open('LICENSE', 'w')
+    f.write('')
+    f.close()
 
     # Add Todo
-    #f = open('TODO.md', 'w')
-    #f.write('')
-    #f.close()
+    f = open('TODO.md', 'w')
+    f.write('')
+    f.close()
 
     # Add Requirements
-    #f = open('requirements.txt', 'w')
-    #f.write('')
-    #f.close()
+    f = open('requirements.txt', 'w')
+    f.write('')
+    f.close()
 
     # Make docs directory
     os.mkdir('docs')
