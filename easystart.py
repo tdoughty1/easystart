@@ -74,7 +74,8 @@ def main():
     # Add Setup files
     writesetup.write_python(config)
 
-    f = open('setup.cf', 'w')
+    '''
+    f = open('setup.cfg', 'w')
     f.write('')
     f.close()
 
@@ -97,6 +98,7 @@ def main():
     f = open('TODO.md', 'w')
     f.write('')
     f.close()
+    '''
 
     # Add Requirements
     f = open('requirements.txt', 'w')
